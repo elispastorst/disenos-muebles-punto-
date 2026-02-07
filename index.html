@@ -1,4 +1,4 @@
-/*    /index.html   20<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -146,27 +146,60 @@
             width: 100%;
         }
         
-        /* Hero Section */
+        /* === HERO SECTION CON TU IMAGEN === */
         .hero {
-            background: linear-gradient(rgba(26, 35, 126, 0.9), rgba(46, 125, 50, 0.9)), 
-                        url('https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');
-            background-size: cover;
-            background-position: center;
+            position: relative;
             color: white;
             padding: 12rem 0 6rem;
             text-align: center;
             margin-top: 80px;
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        /* Fondo con tu imagen */
+        .hero-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+        
+        .hero-background img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+        
+        /* Overlay para mejor legibilidad */
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(26, 35, 126, 0.85), rgba(46, 125, 50, 0.85));
+            z-index: -1;
         }
         
         .hero-content {
             max-width: 900px;
             margin: 0 auto;
+            position: relative;
+            z-index: 2;
+            padding: 0 20px;
         }
         
         .hero h1 {
             font-size: 3.5rem;
             margin-bottom: 1.5rem;
-            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
         }
         
         .hero-tagline {
@@ -174,12 +207,14 @@
             color: var(--secondary);
             margin-bottom: 2rem;
             font-weight: 600;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
         }
         
         .hero-subtitle {
             font-size: 1.5rem;
             margin-bottom: 3rem;
             opacity: 0.95;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
         }
         
         .contact-card {
@@ -604,7 +639,7 @@
             font-size: 0.95rem;
         }
         
-        /* Responsive */
+        /* === RESPONSIVE PARA MÓVIL === */
         @media (max-width: 992px) {
             .hero h1 {
                 font-size: 3rem;
@@ -612,6 +647,10 @@
             
             .hero-tagline {
                 font-size: 1.8rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.3rem;
             }
         }
         
@@ -647,8 +686,11 @@
                 margin: 1.2rem 0;
             }
             
+            /* HERO EN MÓVIL */
             .hero {
-                padding: 10rem 0 5rem;
+                padding: 8rem 0 4rem;
+                min-height: 85vh;
+                margin-top: 70px;
             }
             
             .hero h1 {
@@ -659,18 +701,53 @@
                 font-size: 1.6rem;
             }
             
+            .hero-subtitle {
+                font-size: 1.2rem;
+                margin-bottom: 2rem;
+            }
+            
             .contact-card {
                 padding: 1.8rem;
+                margin-top: 1.5rem;
+            }
+            
+            .contact-card p {
+                font-size: 1.1rem;
+            }
+            
+            .btn {
+                padding: 0.9rem 1.8rem;
+                margin: 0.3rem;
+                font-size: 1rem;
             }
             
             .section {
                 padding: 4rem 0;
             }
+            
+            /* IMAGEN EN MÓVIL - OCUPA TODO */
+            .hero-background img {
+                object-fit: cover;
+                object-position: center center;
+            }
         }
         
         @media (max-width: 576px) {
+            .hero {
+                padding: 7rem 0 3rem;
+                min-height: 80vh;
+            }
+            
             .hero h1 {
                 font-size: 2.2rem;
+            }
+            
+            .hero-tagline {
+                font-size: 1.4rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.1rem;
             }
             
             .section-title h2 {
@@ -678,13 +755,40 @@
             }
             
             .btn {
-                padding: 0.9rem 2rem;
-                width: 100%;
-                margin: 0.5rem 0;
+                padding: 0.9rem 1.5rem;
+                width: 90%;
+                margin: 0.5rem auto;
+                display: block;
             }
             
             .services-grid {
                 grid-template-columns: 1fr;
+            }
+            
+            .contact-card {
+                padding: 1.5rem;
+            }
+            
+            .contact-card p {
+                font-size: 1rem;
+            }
+        }
+        
+        @media (max-width: 400px) {
+            .hero {
+                min-height: 75vh;
+            }
+            
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .hero-tagline {
+                font-size: 1.2rem;
+            }
+            
+            .logo-main {
+                font-size: 1.8rem;
             }
         }
     </style>
@@ -717,8 +821,14 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
+    <!-- Hero Section CON TU IMAGEN -->
     <section class="hero" id="home">
+        <div class="hero-background">
+            <!-- AQUÍ VA TU IMAGEN - REEMPLAZA "imagen1.png" con tu nombre exacto -->
+            <img src="imagen1.png" alt="DISEÑOS & PUNTO - Fábrica de muebles">
+            <div class="hero-overlay"></div>
+        </div>
+        
         <div class="container hero-content">
             <h1>DISEÑOS & PUNTO</h1>
             <div class="hero-tagline">FÁBRICA Y REPARACIÓN DE MUEBLES</div>
@@ -732,10 +842,10 @@
             </div>
             
             <div class="hero-buttons">
-                <a href="tel:3217140219" class="btn btn-primary">
+                <a href="tel:3213140219" class="btn btn-primary">
                     <i class="fas fa-phone"></i> LLAMAR AHORA
                 </a>
-                <a href="https://wa.me/573217140219" target="_blank" class="btn btn-whatsapp">
+                <a href="https://wa.me/573213140219" target="_blank" class="btn btn-whatsapp">
                     <i class="fab fa-whatsapp"></i> WHATSAPP
                 </a>
                 <a href="#services" class="btn btn-secondary">
@@ -872,7 +982,7 @@
                 <div class="contact-details">
                     <h3 style="color: var(--dark); margin-bottom: 1.5rem;">Información de Contacto</h3>
                     <p><i class="fas fa-map-marker-alt"></i> <strong>Dirección:</strong> Av. 10 con Calle 7 Esquina, Barrio El Liao</p>
-                    <p><i class="fas fa-phone"></i> <strong>Teléfono:</strong> 321 714 0219</p>
+                    <p><i class="fas fa-phone"></i> <strong>Teléfono:</strong> 321 314 0219</p>
                     <p><i class="fas fa-clock"></i> <strong>Horario:</strong> Lunes a Sábado 8:00 AM - 6:00 PM</p>
                     <p><i class="fas fa-star"></i> <strong>Especialidad:</strong> Fabricación y reparación integral</p>
                 </div>
@@ -939,7 +1049,7 @@
                     
                     <div class="contact-details">
                         <p><i class="fas fa-map-marker-alt"></i> <strong>Dirección:</strong> Av. 10 con Calle 7 Esquina, B. El Liao</p>
-                        <p><i class="fas fa-phone"></i> <strong>Teléfono:</strong> 321 314 0219</p>
+                        <p><i class="fas fa-phone"></i> <strong>Teléfono:</strong> 321 714 0219</p>
                         <p><i class="fas fa-clock"></i> <strong>Horario:</strong> Lunes a Sábado: 8:00 AM - 6:00 PM</p>
                         <p><i class="fas fa-envelope"></i> <strong>Email:</strong> info@disenospunto.com</p>
                         <p><i class="fas fa-tools"></i> <strong>Servicios:</strong> Fabricación, reparación, pintura y tapicería</p>
@@ -949,7 +1059,7 @@
                         <a href="tel:3213140219" class="btn btn-primary">
                             <i class="fas fa-phone"></i> LLAMAR AHORA
                         </a>
-                        <a href="https://wa.me/573213140219" target="_blank" class="btn btn-whatsapp">
+                        <a href="https://wa.me/573217140219" target="_blank" class="btn btn-whatsapp">
                             <i class="fab fa-whatsapp"></i> WHATSAPP
                         </a>
                     </div>
@@ -1043,4 +1153,28 @@
                     
                     window.scrollTo({
                         top: targetElement.offsetTop - 80,
-                        behavior0
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Add animation to service cards
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        document.querySelectorAll('.service-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>
