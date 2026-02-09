@@ -146,13 +146,87 @@
             width: 100%;
         }
         
-        /* === HERO SECTION CON TU IMAGEN === */
+        /* === NUEVA SECCIÓN: GALERÍA DE TRABAJOS === */
+        .work-showcase {
+            margin-top: 80px;
+            padding: 3rem 0;
+            background: linear-gradient(135deg, #1A237E 0%, #2E7D32 100%);
+            color: white;
+        }
+        
+        .showcase-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2.5rem;
+        }
+        
+        .showcase-title {
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+        
+        .showcase-title h2 {
+            font-size: 2.5rem;
+            color: white;
+            margin-bottom: 0.5rem;
+        }
+        
+        .showcase-title p {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        .work-images {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .work-image-container {
+            flex: 1;
+            min-width: 300px;
+            max-width: 500px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+        
+        .work-image-container:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+        }
+        
+        .work-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .image-caption {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 1.5rem;
+            text-align: center;
+        }
+        
+        .image-caption h3 {
+            color: var(--secondary);
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        /* === HERO SECTION CON FACHADA === */
         .hero {
             position: relative;
             color: white;
             padding: 12rem 0 6rem;
             text-align: center;
-            margin-top: 80px;
             min-height: 90vh;
             display: flex;
             align-items: center;
@@ -375,18 +449,6 @@
             font-size: 1.8rem;
             margin-bottom: 1.2rem;
         }
-        
-        /* === ELIMINADO: CLASE service-price === */
-        /* .service-price {
-            display: inline-block;
-            background-color: var(--accent);
-            color: white;
-            padding: 0.8rem 2rem;
-            border-radius: 30px;
-            font-weight: 700;
-            margin-top: 1.5rem;
-            font-size: 1.3rem;
-        } */
         
         /* About Section */
         .about-section {
@@ -653,6 +715,10 @@
             .hero-subtitle {
                 font-size: 1.3rem;
             }
+            
+            .showcase-title h2 {
+                font-size: 2.2rem;
+            }
         }
         
         @media (max-width: 768px) {
@@ -687,11 +753,20 @@
                 margin: 1.2rem 0;
             }
             
+            /* TRABAJOS EN MÓVIL */
+            .work-images {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .work-image-container {
+                min-width: 90%;
+            }
+            
             /* HERO EN MÓVIL */
             .hero {
                 padding: 8rem 0 4rem;
                 min-height: 85vh;
-                margin-top: 70px;
             }
             
             .hero h1 {
@@ -725,12 +800,6 @@
             .section {
                 padding: 4rem 0;
             }
-            
-            /* IMAGEN EN MÓVIL - OCUPA TODO */
-            .hero-background img {
-                object-fit: cover;
-                object-position: center center;
-            }
         }
         
         @media (max-width: 576px) {
@@ -749,6 +818,10 @@
             
             .hero-subtitle {
                 font-size: 1.1rem;
+            }
+            
+            .showcase-title h2 {
+                font-size: 1.8rem;
             }
             
             .section-title h2 {
@@ -822,12 +895,44 @@
         </div>
     </header>
 
-    <!-- Hero Section CON TU IMAGEN -->
+    <!-- NUEVA SECCIÓN: GALERÍA DE TRABAJOS -->
+    <section class="work-showcase" id="portfolio">
+        <div class="container showcase-container">
+            <div class="showcase-title">
+                <h2>Nuestros Trabajos</h2>
+                <p>Ejemplos de la calidad y creatividad que ofrecemos</p>
+            </div>
+            
+            <div class="work-images">
+                <div class="work-image-container">
+                    <img src="foto mueble.jpg" alt="Ejemplo de mueble fabricado por MUEBLES DISEÑOS & PUNTO" class="work-image">
+                    <div class="image-caption">
+                        <h3>Mueble Fabricado a Medida</h3>
+                        <p>Diseño personalizado con materiales de primera calidad</p>
+                    </div>
+                </div>
+                
+                <div class="work-image-container">
+                    <img src="fachada.jpg" alt="Fachada de MUEBLES DISEÑOS & PUNTO - Nuestro taller" class="work-image">
+                    <div class="image-caption">
+                        <h3>Nuestro Taller</h3>
+                        <p>Donde creamos y restauramos tus muebles con pasión</p>
+                    </div>
+                </div>
+            </div>
+            
+            <a href="#contact" class="btn btn-secondary">
+                <i class="fas fa-concierge-bell"></i> SOLICITA TU PRESUPUESTO
+            </a>
+        </div>
+    </section>
+
+    <!-- Hero Section CON FACHADA -->
     <section class="hero" id="home">
         <div class="hero-background">
-            <!-- REEMPLAZA CON TU IMAGEN EXACTA -->
-<!-- IMAGEN DE LA FACHADA -->
-<img src="MUEBLES DISEÑOSYPUNTO/fachada.jpg" alt="Fachada de MUEBLES DISEÑOS & PUNTO - Nuestra fábrica/taller">            <div class="hero-overlay"></div>
+            <!-- RUTA CORREGIDA: la imagen está en el directorio raíz -->
+            <img src="fachada.jpg" alt="Fachada de MUEBLES DISEÑOS & PUNTO - Nuestro taller">
+            <div class="hero-overlay"></div>
         </div>
         
         <div class="container hero-content">
@@ -872,7 +977,6 @@
                     <div class="service-content">
                         <h3>Fabricación de Muebles</h3>
                         <p>Diseño y creación de muebles a medida según tus necesidades y espacio. Carpintería fina con materiales de primera calidad.</p>
-                        <!-- SIN PRECIO -->
                     </div>
                 </div>
                 
@@ -883,7 +987,6 @@
                     <div class="service-content">
                         <h3>Reparación de Muebles</h3>
                         <p>Restauración completa de muebles dañados, cambio de estructuras, reparación de marcos y sistemas de apertura.</p>
-                        <!-- SIN PRECIO -->
                     </div>
                 </div>
                 
@@ -894,7 +997,6 @@
                     <div class="service-content">
                         <h3>Pintura Profesional</h3>
                         <p>Pintura decorativa y de protección para muebles. Acabados en barniz, lacado, esmaltado y efectos especiales.</p>
-                        <!-- SIN PRECIO -->
                     </div>
                 </div>
                 
@@ -905,7 +1007,6 @@
                     <div class="service-content">
                         <h3>Tapicería Especializada</h3>
                         <p>Renovación de sofás, sillas, butacas. Cambio de telas, espumas, resortes y detalles decorativos.</p>
-                        <!-- SIN PRECIO -->
                     </div>
                 </div>
                 
@@ -916,7 +1017,6 @@
                     <div class="service-content">
                         <h3>Diseño de Interiores</h3>
                         <p>Asesoría profesional en distribución, colores y estilos para optimizar tus espacios residenciales o comerciales.</p>
-                        <!-- SIN PRECIO -->
                     </div>
                 </div>
                 
@@ -927,7 +1027,6 @@
                     <div class="service-content">
                         <h3>Muebles para Cocina</h3>
                         <p>Muebles de cocina a medida, gabinetes, alacenas, mesones y toda la carpintería especializada para cocinas.</p>
-                        <!-- SIN PRECIO -->
                     </div>
                 </div>
             </div>
@@ -1126,10 +1225,18 @@
         
         // Efecto para imágenes cuando se cargan
         window.addEventListener('load', function() {
+            const images = document.querySelectorAll('.work-image, .hero-background img');
+            images.forEach(img => {
+                img.style.opacity = '1';
+                img.style.transition = 'opacity 0.8s ease';
+            });
+            
+            // Verificar si las imágenes cargan
             const heroImg = document.querySelector('.hero-background img');
             if(heroImg) {
-                heroImg.style.opacity = '1';
-                heroImg.style.transition = 'opacity 0.8s ease';
+                heroImg.onerror = function() {
+                    console.log('Si la imagen de fachada no carga, verifica que el archivo se llame exactamente "fachada.jpg"');
+                };
             }
         });
         
@@ -1140,6 +1247,19 @@
                 const currentYear = new Date().getFullYear();
                 yearElement.innerHTML = yearElement.innerHTML.replace('2024', currentYear);
             }
+            
+            // Efecto para las imágenes de trabajos
+            const workImages = document.querySelectorAll('.work-image-container');
+            workImages.forEach((container, index) => {
+                container.style.opacity = '0';
+                container.style.transform = 'translateY(30px)';
+                container.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                
+                setTimeout(() => {
+                    container.style.opacity = '1';
+                    container.style.transform = 'translateY(0)';
+                }, 300 + (index * 200));
+            });
         });
     </script>
 </body>
